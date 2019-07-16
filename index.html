@@ -13,6 +13,7 @@
       <input type="text" v-on:input="changeTitle" />
       <p>{{ title }}</p>
       <p>{{ sayHello() }} - <a v-bind:href="getLink()">Google</a></p>
+      <p v-html="finishedLink"></p>
     </div>
 
     <script>
@@ -20,7 +21,8 @@
         el: "#app",
         data: {
           title: "Hello world from data!",
-          link: "http://google.com"
+          link: "http://google.com",
+          finishedLink: '<a  href="http://yandex.ru">Yandex</a>'
         },
         methods: {
           sayHello: function() {
