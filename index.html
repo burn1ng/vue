@@ -9,9 +9,10 @@
   </head>
   <body>
     <div id="app">
+      <h1 v-once>{{ title }}</h1>
       <input type="text" v-on:input="changeTitle" />
       <p>{{ title }}</p>
-      <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+      <p>{{ sayHello() }} - <a v-bind:href="getLink()">Google</a></p>
     </div>
 
     <script>
@@ -22,11 +23,15 @@
           link: "http://google.com"
         },
         methods: {
+          sayHello: function() {
+            this.title = "Hello";
+            return this.title;
+          },
           changeTitle: function(e) {
             this.title = e.target.value;
           },
-          sayHello: function() {
-            return this.title;
+          getLink: function() {
+            return this.link;
           }
         }
       });
