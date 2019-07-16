@@ -18,14 +18,14 @@
       new Vue({
         el: "#app",
         data: {
-          title: "Hello world!"
+          title: "Hello world from data!"
         },
         methods: {
           changeTitle: function(e) {
             this.title = e.target.value;
           },
           sayHello: function() {
-            return "Hello";
+            return this.title;
           }
         }
       });
