@@ -1,4 +1,24 @@
 new Vue({
+    el: '#app_counter',
+    data: {
+        counter: 0,
+        secondCounter: 0
+    },
+    computed: {
+        output: function() {
+            console.log('Computed property');
+            return this.counter > 5 ? `Greater than 5` : `Smaller than 5`;
+        }
+    },
+    methods: {
+        result(number = 5) {
+            console.log('Method');
+            return this.counter > number ? `Greater than ${number}` : `Smaller than ${number}`;
+        }
+    }
+});
+
+new Vue({
     el: '#binding',
     data: {
         name: 'Andrei'
