@@ -1,76 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Vuejs</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  </head>
-  <body>
-    <div id="exercise">
-      <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
-      <p>VueJS is pretty cool - {{ name }} ({{ age }})</p>
-      <!-- 2) Output your age, multiplied by 3 -->
-      <p>{{ getMultipliedAge(3) }}</p>
-      <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
-      <p>{{ getRandom() }}</p>
-      <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
-      <div>
-        <img style="width:100px;height:100px" v-bind:src="getImage()" />
-      </div>
-      <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
-      <div>
-        <input type="text" v-bind:value="name" />
-      </div>
-    </div>
-    <div id="app">
-      <h1 v-once>{{ title }}</h1>
-      <input type="text" v-on:input="changeTitle" />
-      <p>{{ title }}</p>
-      <p>{{ sayHello() }} - <a v-bind:href="getLink()">Google</a></p>
-      <p v-html="finishedLink"></p>
-    </div>
+    <script src="vendor/vue.js"></script>
+</head>
+<body>
+<div id="button_container">
+    <button v-on:click="increase">Click me</button>
+    <p>{{ counter }}</p>
+</div>
 
-    <script>
-      new Vue({
+<div id="exercise">
+    <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
+    <p>VueJS is pretty cool - {{ name }} ({{ age }})</p>
+    <!-- 2) Output your age, multiplied by 3 -->
+    <p>{{ getMultipliedAge(3) }}</p>
+    <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
+    <p>{{ getRandom() }}</p>
+    <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
+    <div>
+        <img style="width:100px;height:100px" v-bind:src="getImage()" />
+    </div>
+    <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+    <div>
+        <input type="text" v-bind:value="name" />
+    </div>
+</div>
+<div id="app">
+    <h1 v-once>{{ title }}</h1>
+    <input type="text" v-on:input="changeTitle" />
+    <p>{{ title }}</p>
+    <p>{{ sayHello() }} - <a v-bind:href="getLink()">Google</a></p>
+    <p v-html="finishedLink"></p>
+</div>
+
+<script>
+    new Vue({
+        el: '#button_container',
+        data: {
+            counter: 0
+        },
+        methods: {
+            increase: function() {
+                this.counter++;
+            }
+        }
+    });
+</script>
+<script>
+    new Vue({
         el: "#exercise",
         data: {
-          name: "Andrei Dushkou",
-          age: 26
+            name: "Andrei Dushkou",
+            age: 26
         },
         methods: {
-          getMultipliedAge: function(multiplier) {
-            return this.age * multiplier;
-          },
-          getRandom() {
-            return Math.random();
-          },
-          getImage() {
-            return "http://lorempixel.com/100/100/";
-          }
+            getMultipliedAge: function(multiplier) {
+                return this.age * multiplier;
+            },
+            getRandom() {
+                return Math.random();
+            },
+            getImage() {
+                return "http://lorempixel.com/100/100/";
+            }
         }
-      });
-      new Vue({
+    });
+</script>
+<script>
+    new Vue({
         el: "#app",
         data: {
-          title: "Hello world from data!",
-          link: "http://google.com",
-          finishedLink: '<a  href="http://yandex.ru">Yandex</a>'
+            title: "Hello world from data!",
+            link: "http://google.com",
+            finishedLink: '<a  href="http://yandex.ru">Yandex</a>'
         },
         methods: {
-          sayHello: function() {
-            this.title = "Hello";
-            return this.title;
-          },
-          changeTitle: function(e) {
-            this.title = e.target.value;
-          },
-          getLink: function() {
-            return this.link;
-          }
+            sayHello: function() {
+                this.title = "Hello";
+                return this.title;
+            },
+            changeTitle: function(e) {
+                this.title = e.target.value;
+            },
+            getLink: function() {
+                return this.link;
+            }
         }
-      });
-    </script>
-  </body>
+    });
+</script>
+</body>
 </html>
