@@ -1,4 +1,11 @@
 new Vue({
+  el: "#styling",
+  data: {
+    attachRed: false
+  }
+});
+
+new Vue({
   el: "#exercise3",
   data: {
     value: 0
