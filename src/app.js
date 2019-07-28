@@ -2,6 +2,14 @@ new Vue({
   el: "#styling",
   data: {
     attachRed: false
+  },
+  computed: {
+    divClasses: function() {
+      return {
+        red: this.attachRed,
+        blue: !this.attachRed
+      };
+    }
   }
 });
 
