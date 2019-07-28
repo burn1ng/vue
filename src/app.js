@@ -2,9 +2,16 @@ new Vue({
   el: "#styling",
   data: {
     attachRed: false,
-    color: "green"
+    color: "green",
+    width: 100
   },
   computed: {
+    myStyles: function() {
+      return {
+        backgroundColor: this.color,
+        width: this.width + "px"
+      };
+    },
     divClasses: function() {
       return {
         red: this.attachRed,

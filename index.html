@@ -14,10 +14,11 @@
         @click="attachRed = !attachRed"
         :class="divClasses"
       ></div>
-      <div class="demo" :class="{red: attachRed}"></div>
+      <div class="demo" :style="myStyles"></div>
       <div class="demo" :class="[color, {red: attachRed}]"></div>
       <hr />
       <input type="text" v-model="color" />
+      <input type="text" v-model="width" />
     </div>
 
     <div id="exercise3">
