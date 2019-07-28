@@ -4,11 +4,12 @@
   background-color: grey;
   display: inline-block;
 }
-
-.red {
-  background-color: red;
+.green {
+  background-color: green;
 }
-
 .blue {
   background-color: blue;
+}
+.red {
+  background-color: red;
 }

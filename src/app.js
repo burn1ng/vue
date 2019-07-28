@@ -1,7 +1,8 @@
 new Vue({
   el: "#styling",
   data: {
-    attachRed: false
+    attachRed: false,
+    color: "green"
   },
   computed: {
     divClasses: function() {
