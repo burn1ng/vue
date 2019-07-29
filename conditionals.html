@@ -15,6 +15,10 @@
       </ul>
       <hr />
       <ul>
+        <li v-for="n in 10">#{{ n }}</li>
+      </ul>
+      <hr />
+      <ul>
         <li v-for="person in persons">
           <div v-for="(value, key, index) in person">
             {{ key }}: {{ value }} ({{ index }})
