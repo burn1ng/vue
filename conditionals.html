@@ -9,10 +9,11 @@
   <body>
     <div id="loop">
       <ul>
-        <li v-for="(ingridient, i) in ingridients">
+        <li v-for="(ingridient, i) in ingridients" key="ingrideint + i">
           {{ ingridient }} - ({{ i }})
         </li>
       </ul>
+      <button @click="ingridients.push('spices')">Add spices</button>
       <hr />
       <ul>
         <li v-for="n in 10">#{{ n }}</li>
