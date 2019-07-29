@@ -9,7 +9,9 @@
   <body>
     <div id="loop">
       <ul>
-        <li v-for="ingridient in ingridients">{{ ingridient }}</li>
+        <li v-for="(ingridient, i) in ingridients">
+          {{ ingridient }} - ({{ i }})
+        </li>
       </ul>
     </div>
 
