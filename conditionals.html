@@ -13,6 +13,15 @@
           {{ ingridient }} - ({{ i }})
         </li>
       </ul>
+      <hr />
+      <ul>
+        <li v-for="person in persons">
+          <div v-for="(value, key, index) in person">
+            {{ key }}: {{ value }} ({{ index }})
+          </div>
+        </li>
+      </ul>
+      <hr />
       <template v-for="(ingridient, index) in ingridients">
         <strong>{{ ingridient }}</strong> <span>{{ index }}</span
         ><br />
