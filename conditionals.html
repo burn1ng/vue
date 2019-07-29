@@ -7,6 +7,12 @@
     <title>Vuejs conditionals</title>
   </head>
   <body>
+    <div id="loop">
+      <ul>
+        <li v-for="ingridient in ingridients">{{ ingridient }}</li>
+      </ul>
+    </div>
+
     <div id="app">
       <p v-if="show">hello</p>
       <p v-else>Big HeLLO!</p>
