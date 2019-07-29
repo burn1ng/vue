@@ -13,6 +13,10 @@
           {{ ingridient }} - ({{ i }})
         </li>
       </ul>
+      <template v-for="(ingridient, index) in ingridients">
+        <strong>{{ ingridient }}</strong> <span>{{ index }}</span
+        ><br />
+      </template>
     </div>
 
     <div id="app">
