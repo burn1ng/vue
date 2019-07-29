@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vuejs conditionals</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="show">hello</p>
+      <p v-else>Big HeLLO!</p>
+      <p>Andrei!</p>
+      <button @click="show = !show">Switch</button>
+    </div>
+
+    <script src="vendor/vue.js"></script>
+    <script src="src/conditionals.js"></script>
+  </body>
+</html>
