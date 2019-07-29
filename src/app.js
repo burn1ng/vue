@@ -1,4 +1,82 @@
 new Vue({
+  el: "#exercise4",
+  data: {
+    width: 200,
+    timer: null,
+    attachHighlight: false,
+    userCssClass: "",
+    usePredefinedCss: "",
+    userInlineCss: "",
+    progressTimer: null,
+    progress: 0
+  },
+  computed: {
+    effectClasses: function() {
+      if (this.timer) {
+        return {
+          highlight: this.attachHighlight,
+          shrink: !this.attachHighlight
+        };
+      } else {
+        return {
+          highlight: false,
+          shrink: false
+        };
+      }
+    },
+    inlineCss: function() {
+      return {
+        color: "red",
+        backgroundColor: "green"
+      };
+    },
+    progressStyles: function() {
+      return {
+        backgroundColor: "purple",
+        width: this.progress * 5 + "px"
+      };
+    }
+  },
+  methods: {
+    btnText: function(timer) {
+      return timer ? "Stop effect" : "Start Efect";
+    },
+    startEffect: function() {
+      let v = this;
+
+      if (this.timer) {
+        clearInterval(this.timer);
+        return (this.timer = null);
+      }
+
+      this.timer = setInterval(function() {
+        v.attachHighlight = !v.attachHighlight;
+      }, 500);
+    },
+    startProgress: function() {
+      let v = this;
+
+      if (this.progressTimer) {
+        this.stopProgress();
+      } else {
+        this.progressTimer = setInterval(function() {
+          if (v.progress !== 100) {
+            v.progress += 10;
+          } else {
+            v.stopProgress();
+          }
+        }, 500);
+      }
+    },
+    stopProgress: function() {
+      clearInterval(this.progressTimer);
+      this.progressTimer = null;
+      this.progress = 0;
+    }
+  }
+});
+
+new Vue({
   el: "#styling",
   data: {
     attachRed: false,

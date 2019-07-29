@@ -8,6 +8,49 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div id="exercise4">
+      <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+      <div>
+        <button @click="startEffect">{{ btnText(timer) }}</button>
+        <div id="effect" :class="effectClasses"></div>
+      </div>
+      <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+      <div :style="[inlineCss, {width: width + 'px'}]">
+        I got no class :(
+      </div>
+      <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+      <div>
+        <input type="text" v-model="userCssClass" />
+        <div :class="userCssClass">{{ userCssClass }}</div>
+      </div>
+      <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+      <div>
+        <input type="text" v-model="userCssClass" />
+        <input
+          type="text"
+          v-model="usePredefinedCss"
+          placeholder="true/false"
+        />
+        <div :class="[userCssClass, {bordered: usePredefinedCss === 'true'}]">
+          {{ userCssClass }}
+        </div>
+      </div>
+      <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+      <div>
+        <input type="text" v-model="userInlineCss" />
+        <div :style="userInlineCss">{{ userInlineCss }}</div>
+      </div>
+      <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+      <div>
+        <button @click="startProgress">{{ btnText(progressTimer) }}</button>
+        <div :style="progressStyles">
+          <span>{{ progress }}%</span>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
     <div id="styling">
       <div
         class="demo"
@@ -15,7 +58,7 @@
         :class="divClasses"
       ></div>
       <div class="demo" :style="myStyles"></div>
-      <div class="demo" :class="[color, {red: attachRed}]"></div>
+      <div class="demo" :style="[myStyles, {height: width + 'px'}]"></div>
       <hr />
       <input type="text" v-model="color" />
       <input type="text" v-model="width" />
